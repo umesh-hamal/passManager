@@ -2,11 +2,11 @@ from cryptography.fernet import Fernet
 import os
 import json
 
-# generate a key for encryption/decryption
+# generate key for encryption/decryption
 def generate_key():
     return Fernet.generate_key()
 
-# load the key from a file
+# load key from file
 def load_key():
     return open("secret.key", "rb").read()
 
@@ -15,7 +15,7 @@ def save_key(key):
     with open("secret.key", "wb") as key_file:
         key_file.write(key)
 
-# encrypt a message
+# encrypt message
 def encrypt_message(message, key):
     fernet = Fernet(key)
     encrypted = fernet.encrypt(message.encode())
